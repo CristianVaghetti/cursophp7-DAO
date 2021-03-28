@@ -63,6 +63,37 @@
 
             ));
         }
+
+        public static function getList() {
+            $sql = new Sql();
+            return $sql -> select("SELECT * FROM tb_usuarios"); 
+        }
+
+        public static function search($login) {
+            $sql = new Sql();
+            return $sql -> select("SELECT * FROM tb_usuarios WHERE deslogin LIKE :search", array(
+                ':search' => "%".$login."%"
+            ));
+        }
+
+        public function login($login, $password) {
+            $sql = new Sql();
+            $results = $sql -> select("SELECT * FROM tb_usuarios WHERE deslogin = :LOGIN AND dessenha = :PASSWORD", array(
+                ":LOGIN" => $login,
+                ":PASSWORD" => $password
+            ));
+
+            if(count($results) > 0) {
+                $row = $results[0];
+                $this -> setIdusuario($row['idusuario']);
+                $this -> setDeslogin($row['deslogin']);
+                $this -> setDessenha($row['dessenha']);
+                $this -> setDtcadastro(new DateTime($row['dtcadastro']));
+
+            }   else {
+                throw new Exception ("Usuario e/ou senha incorretos!");
+            }
+        }
     }
 
 ?>
