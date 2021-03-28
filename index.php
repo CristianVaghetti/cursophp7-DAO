@@ -16,7 +16,8 @@
 // ===============================================================
     // $usuario = new Usuario();
     // $usuario -> login("user1", "pass1");
-    // echo $usuario;
+    // echo $usuario; 
+    //NÃO TA FUNCIONANDO POIS INCLUI O MD5 NAS SENHAS
 // ===============================================================   
     // $novo = new Usuario("Cristian", "goxtozo");
     // $novo -> insert();
