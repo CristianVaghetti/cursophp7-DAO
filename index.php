@@ -14,8 +14,23 @@
     // $search = Usuario::search("us");
     // echo json_encode($search);
 // ===============================================================
-    $usuario = new Usuario();
-    $usuario -> login("user1", "pass1");
-    echo $usuario;
+    // $usuario = new Usuario();
+    // $usuario -> login("user1", "pass1");
+    // echo $usuario;
+// ===============================================================   
+    // $novo = new Usuario("Cristian", "goxtozo");
+    // $novo -> insert();
+    // echo $novo
+// ===============================================================
+    // $usuario = new Usuario();
+    // $usuario -> loadById(1);
+    // $usuario -> update("user1", "pass1");
+    // echo $usuario;
+// ===============================================================
+    $delUsuario = new Usuario();
+    $delUsuario -> loadById(1);
+    $delUsuario -> delete();
+    echo $delUsuario;
+
 
 ?>
